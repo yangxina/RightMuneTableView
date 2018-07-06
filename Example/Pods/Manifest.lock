@@ -1,12 +1,16 @@
 PODS:
-  - RightMuneTabel (0.1.0):
+  - RightMuneTabel (0.1.1):
     - SnapKit (~> 4.0)
+    - TZRouter
   - SnapKit (4.0.0)
+  - TZRouter (1.0.2)
 
 DEPENDENCIES:
   - RightMuneTabel (from `../`)
 
 SPEC REPOS:
+  "git@192.168.28.216:zhangyao/TZSpecs.git":
+    - TZRouter
   https://github.com/CocoaPods/Specs.git:
     - SnapKit
 
@@ -15,9 +19,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RightMuneTabel: 4eb9e0f4a3080edc9668475814287d17037ecfd6
+  RightMuneTabel: 26d8ad4f11db10f493f43b7b55419685f0466d19
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  TZRouter: ce3a389212b4d4bfb7fd298d2dda834cdd5df8dd
 
-PODFILE CHECKSUM: 94f336cea4083b97e3b10fb967d2edc8b2ce0777
+PODFILE CHECKSUM: 8aee7d73abce778200458f92faff016cdbc9f6a4
 
 COCOAPODS: 1.5.0

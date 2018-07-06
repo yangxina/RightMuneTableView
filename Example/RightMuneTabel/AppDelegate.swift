@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import TZRouter
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        TZRouterMacro.schemes = ["RightMuneTable"] // 添加scheme,相当于给与权限，调用路由
+        
         return true
     }
 

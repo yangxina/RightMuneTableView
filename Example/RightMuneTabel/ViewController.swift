@@ -8,6 +8,7 @@
 
 import UIKit
 import RightMuneTabel
+import TZRouter
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -32,13 +33,25 @@ class ViewController: UIViewController {
     @objc func rightBarButtonClick() {
          //右上角菜单按钮
         let mune = RightMuneTable(frame: self.view.bounds)
-        mune.imageSource = [UIImage(named: "collection"), UIImage(named: "downLoad"), UIImage(named: "shareAction")] as? [UIImage]
-        mune.titleSource = ["收藏","下载","分享"] //,"分享","分享"
+        mune.imageSource = [UIImage(named: "collection"), UIImage(named: "downLoad"), UIImage(named: "shareAction"),UIImage(named: "collection")] as? [UIImage]
+        mune.titleSource = ["收藏","下载","分享","分享"] //,"分享","分享"
         mune.selectedIndex = { [weak self] (index) in
             print("index = \(index)")
             if index == 1 {
-               
+                let valuue =  TZRouter.shareInstance.getRouterApiData()
+                print("getRouterApiData == \(valuue)")
+                
+            }else if index == 0 {
+                let value = TZRouter.shareInstance.retureStingArray()
+                let value1 = TZRouter.shareInstance.retureIntArray(["one":"一只小蜜蜂", "two": "飞在花丛中"])
+                print("retureStingArray == \(value)， retureIntArray =\(value1)")
+            }else {
+                let value2 = TZRouter.shareInstance.getRouterApiInt(["one":"我爱的是", "two": "中国男足"])
+                print("getRouterApiInt == \(value2)")
+                
             }
+            
+            
         }
         mune.showInView(self.view)
     }
@@ -50,7 +63,7 @@ class ViewController: UIViewController {
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 25
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()

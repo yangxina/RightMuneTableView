@@ -1,9 +1,9 @@
 {
   "name": "RightMuneTabel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "RightMuneTabel.",
   "description": "RightMuneTable mune of rightBarButton",
-  "homepage": "https://github.com/yangxina/RightMuneTable.git",
+  "homepage": "https://github.com/yangxina/RightMuneTableView.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "504672006@qq.com": "yangxin@tzpt.com"
   },
   "source": {
-    "git": "https://github.com/yangxina/RightMuneTable.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/yangxina/RightMuneTableView.git",
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
@@ -27,6 +27,9 @@
   "dependencies": {
     "SnapKit": [
       "~> 4.0"
+    ],
+    "TZRouter": [
+
     ]
   }
 }
