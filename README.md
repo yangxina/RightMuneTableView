@@ -10,6 +10,18 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+## How to Use
+
+1. //右上角菜单按钮
+//**************************************************************************************************************/
+let mune = RightMuneTable(frame: self.view.bounds)
+mune.imageSource = [UIImage(named: "collection"), UIImage(named: "downLoad"), UIImage(named: "shareAction")] as? [UIImage]
+mune.titleSource = ["收藏","下载","分享"] //,"分享","分享"
+mune.selectedIndex = { [weak self] (index) in
+print("index = \(index)")
+if index == 1 {}}
+mune.showInView(self.view)
+/**************************************************************************************************************/
 
 ## Installation
 
