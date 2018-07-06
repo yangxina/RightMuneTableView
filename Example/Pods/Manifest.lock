@@ -1,0 +1,23 @@
+PODS:
+  - RightMuneTabel (0.1.0):
+    - SnapKit (~> 4.0)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - RightMuneTabel (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  RightMuneTabel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RightMuneTabel: 4eb9e0f4a3080edc9668475814287d17037ecfd6
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 94f336cea4083b97e3b10fb967d2edc8b2ce0777
+
+COCOAPODS: 1.5.0

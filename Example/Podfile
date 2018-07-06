@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RightMuneTabel_Example' do
+  pod 'RightMuneTabel', :path => '../'
+
+  target 'RightMuneTabel_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

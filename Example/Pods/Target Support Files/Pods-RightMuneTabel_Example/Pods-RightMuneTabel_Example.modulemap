@@ -1,0 +1,6 @@
+framework module Pods_RightMuneTabel_Example {
+  umbrella header "Pods-RightMuneTabel_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
