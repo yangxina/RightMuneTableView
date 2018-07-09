@@ -21,14 +21,20 @@ class Target_RouterApi: NSObject {
     @objc func Action_getRouterApiData() ->String {
         return SourceBoudleManager.retureString()
     }
+    
+    
     @objc func Action_getRouterApiInt(_ params: [String: Any]) ->NSNumber {   // 基本数据类型都必须转成：  NSNumber 传递出去，外面在处理
         print("先看看参数 = 姓名：\(String(describing: params["name"]))-- 年龄：\(String(describing: params["age"])) -- 钱：\(String(describing: params["money"]))")
         return SourceBoudleManager.retureNumber(params) as NSNumber
     }
     
+    
+    
     @objc func Action_retureStingArray() -> [String] {
         return SourceBoudleManager.retureStringArray()
     }
+    
+    
     
     @objc func Action_retureIntArray(_ param: [String: Any]) -> [Int] {
         // 参数中有中文时，来个中文编解码
@@ -38,6 +44,8 @@ class Target_RouterApi: NSObject {
         
         return SourceBoudleManager.retureIntArray(param)
     }
+    
+    
     
     @objc func Action_getImage() -> UIImage?{
         guard let image = SourceBoudleManager.foundImage(imageName: "muneBg") else {
