@@ -28,7 +28,7 @@
     "SnapKit": [
       "~> 4.0"
     ],
-    "TZRouter": [
+    "NicooSwiftRouter": [
 
     ]
   }

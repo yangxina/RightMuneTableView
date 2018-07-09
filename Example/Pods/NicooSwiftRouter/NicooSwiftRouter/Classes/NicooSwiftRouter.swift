@@ -1,24 +1,18 @@
 //
-//  TZRouter.swift
-//  TZRouter
+//  NicooSwiftRouter.swift
+//  NicooSwiftRouter
 //
-//  Created by TyroneZhang on 2018/6/5.
-//  本路由使用于云图书馆项目中，主要目的是为解决组件化后，组件间的解偶。
-//  借鉴思路源于casa的CTMediator。
-//  犹豫项目使用的是swift语言，所以不直接使用CTMediator。
+//  Created by 小星星 on 2018/7/6.
+//
 
 import Foundation
 
-/// 每个模块自己维护自己的硬编码，继承这个struct，并将硬编码定义到改struct里去
-public struct TZRouterMacro  {
-    /// 在appdelegate初始化scheme白名单
+ public struct NicooRouterManager {
+    
     public static var schemes: [String]?
-    
 }
-
-open class TZRouter {
-    
-    public static let shareInstance = TZRouter()
+open class NicooRouter {
+    public static let shareInstance = NicooRouter()
     
     private init() {}
     
@@ -42,7 +36,7 @@ open class TZRouter {
         guard let scheme = url.scheme else {
             return false
         }
-        guard let schemes = TZRouterMacro.schemes , schemes.contains(scheme) else {
+        guard let schemes = NicooRouterManager.schemes , schemes.contains(scheme) else {
             return false
         }
         let actionName = url.path.replacingOccurrences(of: "/", with: "")
@@ -143,17 +137,17 @@ open class TZRouter {
     private func safeRetrun(_ result: Unmanaged<AnyObject>?, target: NSObject, sel: Selector) -> Any? {
         return result?.takeUnretainedValue()
         /*
-        var aMethod: Method?
-        if target.responds(to: sel) {
-            aMethod = class_getInstanceMethod(target.classForCoder, sel)
-        } else if (target.classForCoder).responds(to: sel) {
-            aMethod = class_getClassMethod(target.classForCoder, sel)
-        }
-        guard let method = aMethod else {
-            return nil
-        }
-        let returnType = method_copyReturnType(method)
-        let typeString = String(utf8String: returnType)!
-        */
+         var aMethod: Method?
+         if target.responds(to: sel) {
+         aMethod = class_getInstanceMethod(target.classForCoder, sel)
+         } else if (target.classForCoder).responds(to: sel) {
+         aMethod = class_getClassMethod(target.classForCoder, sel)
+         }
+         guard let method = aMethod else {
+         return nil
+         }
+         let returnType = method_copyReturnType(method)
+         let typeString = String(utf8String: returnType)!
+         */
     }
 }

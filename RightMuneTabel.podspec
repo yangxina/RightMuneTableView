@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RightMuneTabel'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'RightMuneTabel.'
 
 # This description is used to generate tags and improve search results.
@@ -40,5 +40,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
     s.dependency 'SnapKit', '~> 4.0'
-    s.dependency  'TZRouter'
+    s.dependency  'NicooSwiftRouter'
 end

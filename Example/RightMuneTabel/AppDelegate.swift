@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TZRouter
+import NicooSwiftRouter
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        TZRouterMacro.schemes = ["RightMuneTable"] // 添加scheme,相当于给与权限，调用路由
+        NicooRouterManager.schemes = ["RightMuneTable"] // 添加scheme,相当于给与权限，调用路由
         
         return true
     }

@@ -1,17 +1,16 @@
 PODS:
+  - NicooSwiftRouter (0.1.0)
   - RightMuneTabel (0.1.1):
+    - NicooSwiftRouter
     - SnapKit (~> 4.0)
-    - TZRouter
   - SnapKit (4.0.0)
-  - TZRouter (1.0.2)
 
 DEPENDENCIES:
   - RightMuneTabel (from `../`)
 
 SPEC REPOS:
-  "git@192.168.28.216:zhangyao/TZSpecs.git":
-    - TZRouter
   https://github.com/CocoaPods/Specs.git:
+    - NicooSwiftRouter
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -19,9 +18,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RightMuneTabel: 26d8ad4f11db10f493f43b7b55419685f0466d19
+  NicooSwiftRouter: 8c81c6d83e9d2c3bddd06dc41b4ff5e3dd756769
+  RightMuneTabel: 74a2f045bac394dfe3c21a51e01a21dc3969c35a
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  TZRouter: ce3a389212b4d4bfb7fd298d2dda834cdd5df8dd
 
 PODFILE CHECKSUM: 8aee7d73abce778200458f92faff016cdbc9f6a4
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import RightMuneTabel
-import TZRouter
+import NicooSwiftRouter
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -38,15 +38,15 @@ class ViewController: UIViewController {
         mune.selectedIndex = { [weak self] (index) in
             print("index = \(index)")
             if index == 1 {
-                let valuue =  TZRouter.shareInstance.getRouterApiData()
+                let valuue =  NicooRouter.shareInstance.getRouterApiData()
                 print("getRouterApiData == \(valuue)")
                 
             }else if index == 0 {
-                let value = TZRouter.shareInstance.retureStingArray()
-                let value1 = TZRouter.shareInstance.retureIntArray(["one":"一只小蜜蜂", "two": "飞在花丛中"])
+                let value = NicooRouter.shareInstance.retureStingArray()
+                let value1 = NicooRouter.shareInstance.retureIntArray(["one":"一只小蜜蜂", "two": "飞在花丛中"])
                 print("retureStingArray == \(value)， retureIntArray =\(value1)")
             }else {
-                let value2 = TZRouter.shareInstance.getRouterApiInt(["one":"我爱的是", "two": "中国男足"])
+                let value2 = NicooRouter.shareInstance.getRouterApiInt(["one":"我爱的是", "two": "中国男足"])
                 print("getRouterApiInt == \(value2)")
                 
             }

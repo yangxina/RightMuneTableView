@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import NicooSwiftRouter
 
-import TZRouter
-
-public extension TZRouterMacro {
+public extension NicooRouterManager {
    
     fileprivate static let  kNameSpace = "RightMuneTable"
     fileprivate static let  kTarget = "RouterApi"
@@ -18,13 +17,13 @@ public extension TZRouterMacro {
     fileprivate static let  kSelector3 = "retureIntArray"
     fileprivate static let  kSelector4 = "getRouterApiInt"
 }
-public extension TZRouter {
+public extension NicooRouter {
     
     /// 这里是暴露给外部调用的方法 ：
     
     /*  kSelector1  */
     public func getRouterApiData() -> String {
-        let value = perform(action: TZRouterMacro.kSelector1, onTarget: TZRouterMacro.kTarget, inNamespace: TZRouterMacro.kNameSpace, withParams: nil)
+        let value = perform(action: NicooRouterManager.kSelector1, onTarget: NicooRouterManager.kTarget, inNamespace: NicooRouterManager.kNameSpace, withParams: nil)
         guard let strings = value as? String else {
             return ""
         }
@@ -32,7 +31,7 @@ public extension TZRouter {
     }
     /*   kSelector2    */
     public func retureStingArray() -> [String] {
-        let value = perform(action: TZRouterMacro.kSelector2, onTarget: TZRouterMacro.kTarget, inNamespace: TZRouterMacro.kNameSpace, withParams: nil)
+        let value = perform(action: NicooRouterManager.kSelector2, onTarget: NicooRouterManager.kTarget, inNamespace: NicooRouterManager.kNameSpace, withParams: nil)
         guard let stringArray = value as? [String] else {
             return []
         }
@@ -41,7 +40,7 @@ public extension TZRouter {
     }
     /*   kSelector3    */
     public func retureIntArray(_ params: [String: Any]) -> [Int] {
-        let value = perform(action: TZRouterMacro.kSelector3, onTarget: TZRouterMacro.kTarget, inNamespace: TZRouterMacro.kNameSpace, withParams: params)
+        let value = perform(action: NicooRouterManager.kSelector3, onTarget: NicooRouterManager.kTarget, inNamespace: NicooRouterManager.kNameSpace, withParams: params)
         guard let IntArray = value as? [Int] else {
             return []
         }
@@ -50,7 +49,7 @@ public extension TZRouter {
     
     /*   kSelector4    */
     public func getRouterApiInt(_ params: [String: Any]) -> Int {
-        let value = perform(action: TZRouterMacro.kSelector4, onTarget: TZRouterMacro.kTarget, inNamespace: TZRouterMacro.kNameSpace, withParams: params)
+        let value = perform(action: NicooRouterManager.kSelector4, onTarget: NicooRouterManager.kTarget, inNamespace: NicooRouterManager.kNameSpace, withParams: params)
         guard let int = value as? Int else {
             return 0
         }

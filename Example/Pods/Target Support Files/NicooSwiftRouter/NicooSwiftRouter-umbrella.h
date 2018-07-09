@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double TZRouterVersionNumber;
-FOUNDATION_EXPORT const unsigned char TZRouterVersionString[];
+FOUNDATION_EXPORT double NicooSwiftRouterVersionNumber;
+FOUNDATION_EXPORT const unsigned char NicooSwiftRouterVersionString[];
 
