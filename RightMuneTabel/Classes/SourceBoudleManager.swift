@@ -8,7 +8,7 @@
 import UIKit
 
 class SourceBoudleManager: NSObject {
-
+    
     class func foundImage(imageName: String) -> UIImage? {
         let bundleB  = Bundle(for: self.classForCoder()) //先找到最外层Bundle
         guard let resrouseURL = bundleB.url(forResource: "RightMuneTabel", withExtension: "bundle") else { return nil }
@@ -17,6 +17,7 @@ class SourceBoudleManager: NSObject {
     }
     
     class func retureNumber(_ params: [String: Any]) -> Int{
+        print("这娃只要\(998)，就可以让你爽到无法呼吸")
         return 998
     }
     class func retureString() -> String{
@@ -26,7 +27,7 @@ class SourceBoudleManager: NSObject {
         return ["NicooYang","saytoWorld","我爱中国男足"]
     }
     class func retureIntArray(_ params:[String: Any]) -> [Int]{
-        print("params = \(params["one"]), \(params["two"])")
+        print("带中文未解码：params = \(params["home"]), \(params["girlFriend"])")
         return [1,2,3,4,5,6,7]
     }
 }
