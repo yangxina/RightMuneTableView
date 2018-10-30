@@ -1,8 +1,11 @@
 PODS:
   - NicooSwiftRouter (0.1.0)
-  - RightMuneTabel (0.1.2):
+  - RightMuneTabel (0.1.3):
     - NicooSwiftRouter
+    - RouterTestModulServer
     - SnapKit (~> 4.0)
+  - RouterTestModulServer (0.1.2):
+    - NicooSwiftRouter
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
@@ -11,6 +14,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - NicooSwiftRouter
+    - RouterTestModulServer
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -19,9 +23,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   NicooSwiftRouter: 8c81c6d83e9d2c3bddd06dc41b4ff5e3dd756769
-  RightMuneTabel: 62d604cb5a8ee2fc286f6894ddc4a268d4096c6e
+  RightMuneTabel: 52b92533237ff6d58de020763221232d390b25dc
+  RouterTestModulServer: e219c4df4224b5268bb9e79a7271c78f6a2ce8b7
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 8aee7d73abce778200458f92faff016cdbc9f6a4
+PODFILE CHECKSUM: b71f8fd441b24f84c0220ea7043fb655f0523b5d
 
 COCOAPODS: 1.5.0

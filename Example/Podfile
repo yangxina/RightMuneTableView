@@ -7,7 +7,6 @@ target 'RightMuneTabel_Example' do
 
   target 'RightMuneTabel_Tests' do
     inherit! :search_paths
-
     
   end
 end

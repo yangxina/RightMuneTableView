@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import NicooSwiftRouter
+import RouterTestModulServer
 
 open class RightMuneTable: UIView {
 
@@ -107,15 +109,19 @@ open class RightMuneTable: UIView {
     }
 }
 extension RightMuneTable: UITableViewDelegate, UITableViewDataSource {
+    
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 33
     }
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleSource?.count ?? 0
     }
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RightMuneTable.reuseId, for: indexPath) as? RightMuneTableCell else {
             return UITableViewCell()
@@ -124,6 +130,15 @@ extension RightMuneTable: UITableViewDelegate, UITableViewDataSource {
         cell.configCell(imageSource?[indexPath.row], titleSource?[indexPath.row])
         cell.selectedBlock = { [weak self]  in
             if self?.selectedIndex != nil {
+                if let login = self?.islogin(), login {
+                    // 已经登录
+                    print("isloginStatu =\(login)")
+                } else {
+                    // 未登录
+                    print("isloginStatu = false,或nil  去登陆")
+                    
+                }
+              
                 self?.selectedIndex!(indexPath.row)
                 self?.removeFromSuperview()
             }
@@ -132,3 +147,43 @@ extension RightMuneTable: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+
+extension RightMuneTable {
+    
+    
+    /// 通过 "RouterTestModule://RouterLogin/getLoginStatu" 索引URL去 RouterTestModule 组件内获取登录状态
+    ///
+    /// - Returns: 是否已经登录
+    func islogin() -> Bool {
+        let str = "RouterTestModule://RouterLogin/getLoginStatu"
+        let utf8String = str.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: utf8String)!
+        guard let islogin = shareToPlatform(url) as? Bool  else {
+            return false
+        }
+        return islogin
+    }
+    
+    /// 通过组件 RouterTestModule 提供的服务组件： RouterTestModulServer  来调用 RouterTestModule 中的登录页面和登录功能
+    func persentLoginVC() {
+        NicooRouter.shareInstance.Router_presentLoginViewController { [weak self] (isLogin) in
+            if isLogin {
+              
+            } else {
+               
+            }
+        }
+    }
+    
+    /// 路由调用Url去调用方法，获取数据（当然也可以只是单纯的调用方法，没有返回值）
+    ///
+    /// - Parameter url: 另一组件的方法索引（swift中需带命名空间）
+    /// - Returns: 返回值
+    func shareToPlatform(_ url: URL?) -> Any? {
+        guard let shareUrl = url else {
+            return ""
+        }
+        return NicooRouter.shareInstance.performAction(url: shareUrl , completion: nil)
+    }
+}
