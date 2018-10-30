@@ -7,7 +7,7 @@
 
 import Foundation
 
- public struct NicooRouterManager {
+public struct NicooRouterManager {
     
     public static var schemes: [String]?
 }

@@ -1,12 +1,12 @@
 PODS:
-  - NicooSwiftRouter (0.1.0)
-  - RightMuneTabel (0.1.3):
+  - NicooSwiftRouter (0.1.2)
+  - RightMuneTabel (0.1.5):
     - NicooSwiftRouter
     - RouterTestModulServer
     - SnapKit (~> 4.0)
-  - RouterTestModulServer (0.1.2):
+  - RouterTestModulServer (0.1.3):
     - NicooSwiftRouter
-  - SnapKit (4.0.0)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - RightMuneTabel (from `../`)
@@ -22,10 +22,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NicooSwiftRouter: 8c81c6d83e9d2c3bddd06dc41b4ff5e3dd756769
-  RightMuneTabel: 52b92533237ff6d58de020763221232d390b25dc
-  RouterTestModulServer: e219c4df4224b5268bb9e79a7271c78f6a2ce8b7
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  NicooSwiftRouter: 1d33f1e81760f82ca1b2bf9e455b951a02b1ca5b
+  RightMuneTabel: 80ac0e92aec739b57b1e425fd0cf5dd9c9ea1f64
+  RouterTestModulServer: 2e630d158dfc889e31e9a5c1520e54777491d19e
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: b71f8fd441b24f84c0220ea7043fb655f0523b5d
 

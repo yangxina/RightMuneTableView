@@ -35,20 +35,14 @@ class ViewController: UIViewController {
         let mune = RightMuneTable(frame: self.view.bounds)
         mune.imageSource = [UIImage(named: "collection"), UIImage(named: "downLoad"), UIImage(named: "shareAction"),UIImage(named: "collection")] as? [UIImage]
         mune.titleSource = ["收藏","下载","分享","分享"] //,"分享","分享"
-        mune.selectedIndex = { [weak self] (index) in
+        mune.selectedIndex = { (index) in
             print("index = \(index)")
             if index == 1 {
-                let valuue =  NicooRouter.shareInstance.getRouterApiData()
-                print("getRouterApiData == \(valuue)")
                 
             }else if index == 0 {
-                let value = NicooRouter.shareInstance.retureStingArray()
-                let value1 = NicooRouter.shareInstance.retureIntArray(["one":"一只小蜜蜂", "two": "飞在花丛中"])
-                print("retureStingArray == \(value)， retureIntArray =\(value1)")
+               
             }else {
-                let value2 = NicooRouter.shareInstance.getRouterApiInt(["one":"我爱的是", "two": "中国男足"])
-                print("getRouterApiInt == \(value2)")
-                
+              
             }
             
             
