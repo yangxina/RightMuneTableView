@@ -11,7 +11,7 @@ import NicooSwiftRouter
 import RouterTestModulServer
 
 open class RightMuneTable: UIView {
-
+    
     static let selfTag = 9999999
     static let reuseId = "muneListCell"
     ///背景图片的比例，防止变形严重
@@ -50,7 +50,7 @@ open class RightMuneTable: UIView {
     deinit {
         
     }
-   public override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.tag = RightMuneTable.selfTag
         loadMuneTable()
@@ -70,7 +70,6 @@ open class RightMuneTable: UIView {
             updateLayoutOfTable(CGFloat(tableHeight))
             muneTable.reloadData()
         }
-        
     }
     
     public  func showInView(_ view: UIView) {
@@ -133,12 +132,12 @@ extension RightMuneTable: UITableViewDelegate, UITableViewDataSource {
                 if let login = self?.islogin(), login {
                     // 已经登录
                     print("isloginStatu =\(login)")
+                    self?.getUserInfo()
                 } else {
                     // 未登录
                     print("isloginStatu = false,或nil  去登陆")
-                    
+                    self?.persentLoginVC()
                 }
-              
                 self?.selectedIndex!(indexPath.row)
                 self?.removeFromSuperview()
             }
@@ -147,10 +146,7 @@ extension RightMuneTable: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-
 extension RightMuneTable {
-    
     
     /// 通过 "RouterTestModule://RouterLogin/getLoginStatu" 索引URL去 RouterTestModule 组件内获取登录状态
     ///
@@ -165,17 +161,6 @@ extension RightMuneTable {
         return islogin
     }
     
-    /// 通过组件 RouterTestModule 提供的服务组件： RouterTestModulServer  来调用 RouterTestModule 中的登录页面和登录功能
-    func persentLoginVC() {
-        NicooRouter.shareInstance.Router_presentLoginViewController { [weak self] (isLogin) in
-            if isLogin {
-              
-            } else {
-               
-            }
-        }
-    }
-    
     /// 路由调用Url去调用方法，获取数据（当然也可以只是单纯的调用方法，没有返回值）
     ///
     /// - Parameter url: 另一组件的方法索引（swift中需带命名空间）
@@ -186,4 +171,56 @@ extension RightMuneTable {
         }
         return NicooRouter.shareInstance.performAction(url: shareUrl , completion: nil)
     }
+    
+    
+    /// 通过组件 RouterTestModule 提供的服务组件： RouterTestModulServer  来调用 RouterTestModule 中的登录页面和登录功能, 由于需要回调，并且个人觉得用URL调用的方式， 没有这种方式好。
+    func persentLoginVC() {
+        NicooRouter.shareInstance.Router_presentLoginViewController { (isLogin, userInfo) in
+            if isLogin {
+                print("登录成功 ----------->\n 账号：\(userInfo?[0]) \n 密码：\(userInfo?[1]) ")
+                /// 获取用户信息
+                if let userInfo = NicooRouter.shareInstance.Router_getUserInformation() {
+                    print("getUserInfo == \(userInfo)")
+                }
+            } else {
+                print("登录失败")
+            }
+        }
+    }
+    
+    /// 获取用户信息
+    func getUserInfo() {
+        if let userInfo = NicooRouter.shareInstance.Router_getUserInformation() {
+            print("getUserInfo == \(userInfo)")
+        }
+    }
+    
+}
+
+
+extension UIViewController {
+    
+    func showErrorMessage(_ message: String, cancelHandler: (() -> Void)?) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.cancel, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            cancelHandler?()
+        })
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    class func currentViewController(_ baseVC: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = baseVC as? UINavigationController {
+            return currentViewController(nav.visibleViewController)
+        }
+        if let tab = baseVC as? UITabBarController {
+            return currentViewController(tab.selectedViewController)
+        }
+        if let presented = baseVC?.presentedViewController {
+            return currentViewController(presented)
+        }
+        return baseVC
+    }
+    
 }
