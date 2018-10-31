@@ -25,7 +25,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
      mune.showInView(self.view)
      
      2. 这个组件的意义所在： 
-     RightMuneTabel 组件 作为 路由组件 “NicooSwiftRouter” 的测试组件而存在。 当点击 RightMuneTable的 item 时，与组件 “RouterTestModule” 通讯，模拟在组件中点击 ”收藏“ ，”vip下载“ 之类的需要用户登录后才能执行的操作。
+     RightMuneTabel 组件 作为 路由组件 “NicooSwiftRouter” 的测试组件而存在。 
+     当点击 RightMuneTable的 item 时，与组件 “RouterTestModule” 通讯
+     ，模拟在组件中点击 ”收藏“ ，”vip下载“ 之类的需要用户登录后才能执行的操作。
     
 
 
